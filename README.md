@@ -2,6 +2,7 @@
 
 ```
 docker-compose build --no-cache
+docker-compose up -d
 docker-compose exec app chmod -R 777 storage bootstrap/cache
 docker-compose exec app cp .env.example .env
 docker-compose exec app php artisan key:generate
