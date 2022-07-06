@@ -4,6 +4,8 @@ services:
     build: ./infra/php
     volumes:
       - ./src:/data
+    # ports:
+    #   - 9003:9003
 
   web:
     image: nginx:1.20-alpine
