@@ -9,5 +9,12 @@ class Properties extends Model
 {
     use HasFactory;
 
-    protected $guarded = ['id'];
+    protected $table = 'protected';
+
+    protected $primaryKey = 'id';
+
+    public function findAllProperties()
+    {
+        return Properties::all();
+    }
 }
