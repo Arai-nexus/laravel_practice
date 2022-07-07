@@ -11,4 +11,4 @@ db:
 migrate:
 	docker-compose exec app php artisan migrate
 resetdb:
-	docker-compose exec app php artisan migrate:fersh --seed
+	docker-compose exec app php artisan migrate:fresh --seed

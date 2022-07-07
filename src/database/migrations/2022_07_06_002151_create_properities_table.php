@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('properties', function (Blueprint $table) {
             $table->id();
             $table->string('properties_name');
-            $table->string('adress');
+            $table->string('address');
             $table->string('building_age');
             $table->string('rent');
             $table->timestamps();
