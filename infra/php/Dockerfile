@@ -16,3 +16,6 @@ RUN apt-get update && \
 COPY ./php.ini /usr/local/etc/php/php.ini
 
 WORKDIR /data
+
+
+RUN chown -R www-data:www-data /data
