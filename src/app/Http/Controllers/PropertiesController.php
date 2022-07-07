@@ -3,16 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Properties;
+use Illuminate\Support\Facades\Auth;
 
 class PropertiesController extends Controller
 {
     //
 
-    public function getIndex()
+    public function index()
     {
-        $query = \App\Properties::query();
+        $user = Auth::user();
+        $id = $user->id;
+        $properties = Properties::where('id', $id)->latest()->paginate(5);
 
-        $properties = $query->orderBy('id', 'desc')->paginate(5);
-        return view('properties.list')->with('properties', $properties);
+        return view('index')
+            ->with('properties', $properties);
     }
 }
