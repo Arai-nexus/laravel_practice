@@ -14,8 +14,4 @@ use App\Http\Controllers\PropertiesController;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
-
-Route::get('/properties', ['App\Http\Controllers\PropertiesController', 'index']);
+Route::get('/', ['App\Http\Controllers\PropertiesController', 'index']);
