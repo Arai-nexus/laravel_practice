@@ -1,4 +1,4 @@
-@extends('layouts.css')
+@extends('layouts.template')
 
 @section('content')
     <h1>賃貸一覧</h1>
@@ -13,7 +13,9 @@
             @foreach ($properties as $propertie)
                 <tr>
                     <td>{{ $propertie->id }}</td>
-                    <td>{{ $propertie->properties_name }}</td>
+                    <td>{{ $propertie->propertiesName }}</td>
+                    <td>{{ $propertie->adress }}</td>
+                    <td>{{ $propertie->buildingAge }}</td>
                     <td>{{ $propertie->created_at }}</td>
                 </tr>
             @endforeach
