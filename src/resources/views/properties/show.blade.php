@@ -4,9 +4,9 @@
     <h1>賃貸詳細</h1>
 
     <p class="prop_id">No.{{ $properties->id }}</p>
-    <p>物件名：{{ $properties->propertiesName }}</p>
-    <p>住所：{{ $properties->adress }}</p>
-    <p>築年数：{{ $properties->buildingAge }}</p>
+    <p>物件名：{{ $properties->properties_name }}</p>
+    <p>住所：{{ $properties->address }}</p>
+    <p>築年数：{{ $properties->building_age }}</p>
     <p>賃料：{{ $properties->rent }}</div>
         <br>
         <br>
