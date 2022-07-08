@@ -19,3 +19,7 @@ Route::get('/', function () {
 });
 
 Route::get('/properties', ['App\Http\Controllers\PropertiesController', 'index']);
+
+Route::get('/show/{id}', [PropertiesController::class, 'show'])->name('properties.show');
+
+// Route::get('/properties', [, PropertiesController::class, 'home']);

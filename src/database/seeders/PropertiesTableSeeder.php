@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class PropertiesTableSeeder extends Seeder
 {
@@ -15,7 +16,7 @@ class PropertiesTableSeeder extends Seeder
     public function run()
     {
         //reset
-        DB::table('Properties')->delete();
+        DB::table('properties')->delete();
 
         $faker = Faker\Factory::create('ja_JP');
 
