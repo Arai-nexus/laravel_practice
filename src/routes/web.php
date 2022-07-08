@@ -15,3 +15,7 @@ use App\Http\Controllers\PropertiesController;
 */
 
 Route::get('/', ['App\Http\Controllers\PropertiesController', 'index']);
+
+Route::get('/show/{id}', [PropertiesController::class, 'show'])->name('properties.show');
+
+// Route::get('/contact/', 'ContactsController::class', 'contact')->name('properties.contact');
