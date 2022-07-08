@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use App\Models\Properties;
 
 class PropertiesTableSeeder extends Seeder
 {
@@ -15,17 +16,12 @@ class PropertiesTableSeeder extends Seeder
      */
     public function run()
     {
-        //reset
-        DB::table('properties')->delete();
-
-        $faker = Faker\Factory::create('ja_JP');
-
-        for ($i = 0; $i < 10; $i++) {
-            \App\Properties::create([
-                'propertiesName' => $faker->propertiesName(),
-                'adress' => $faker->adress(),
-                'buildingAge' => $faker->buildingAge(),
-                'rent' => $faker->rent(),
+        for ($i = 1; $i < 10; $i++) {
+            Properties::create([
+                'properties_name' => '物件No' . $i,
+                'address' => '大阪府大阪市淀川区西中島' . $i . '丁目' . $i . '番地' . $i,
+                'building_age' => '築' . $i . '0年',
+                'rent' => '賃貸',
             ]);
         }
     }
