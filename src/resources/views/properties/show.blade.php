@@ -16,4 +16,9 @@
             const propId = document.querySelector('.prop_id').innerHTML;
             console.log(propId);
         </script>
-    @endsection
+        <br>
+        <br>
+    <h1>お問い合わせフォーム</h1>
+    {{ var_dump($contact) }}
+    <div class="contact"></div>
+@endsection
