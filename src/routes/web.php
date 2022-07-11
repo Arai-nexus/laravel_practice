@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PropertiesController;
+use App\Http\Controllers\ContactsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,6 @@ use App\Http\Controllers\PropertiesController;
 
 Route::get('/', ['App\Http\Controllers\PropertiesController', 'index']);
 
-Route::get('/show/{id}', [PropertiesController::class, 'show'])->name('properties.show');
+Route::get('/show/{id}', ['App\Http\Controllers\PropertiesController', 'show'])->name('show');
 
-// Route::get('/contact/', 'ContactsController::class', 'contact')->name('properties.contact');
+Route::post('/store', ['App\Http\Controllers\ContactsController', 'store'])->name('store');
