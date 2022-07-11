@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\ContactFormRequest;
 use App\Http\Controllers\Controller;
 use App\Models\Contact;
 use Illuminate\Support\Facades\Mail;
@@ -13,14 +12,17 @@ class ContactsController extends Controller
     //
     public function store(Request $request)
     {
+        $inputs = $request->all();
+        Contact::create($inputs);
         return view('properties.store');
     }
 
-    // public function store()
+    // public function ()
     // {
-    //     // dd($request);
-    //     return view('properties. store');
+
+    //     return view('properties.store');
     // }
+
 
     // public function confirm(Request $request)
     // {
