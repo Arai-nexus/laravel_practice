@@ -11,25 +11,32 @@ use Illuminate\Support\Facades\Mail;
 class ContactsController extends Controller
 {
     //
-    public function contact()
+    public function store(Request $request)
     {
-        return view('properties.show');
+        return view('properties.store');
     }
 
-    public function confirm(ContactFormRequest $request)
-    {
-        $contact = $request->all();
+    // public function store()
+    // {
+    //     // dd($request);
+    //     return view('properties. store');
+    // }
 
-        return view('properties.show')->with([
-            'contact' => $contact
-        ]);
-    }
+    // public function confirm(Request $request)
+    // {
+    //     dd($request->all());
+    //     $contact = $request->all();
 
-    public function send(ContactFormRequest $request)
-    {
-        // $contact = $request->all();
-        // Mail::to('your_address@example.com')->send(new ContactSendmail($contact));
-        // $request->session()->regenerateToken();
-        // return view('contact.thanks');
-    }
+    //     return view('properties.show')->with([
+    //         'contact' => $contact
+    //     ]);
+    // }
+
+    // public function send(ContactFormRequest $request)
+    // {
+    //     $contact = $request->all();
+    //     Mail::to('your_address@example.com')->send(new ContactSendmail($contact));
+    //     $request->session()->regenerateToken();
+    //     return view('contact.thanks');
+    // }
 }

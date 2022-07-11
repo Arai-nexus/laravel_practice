@@ -28,4 +28,9 @@ class ContactFormRequest extends FormRequest
             'contact' => 'required'
         ];
     }
+
+    public function store()
+    {
+        // \Session::flash()
+    }
 }

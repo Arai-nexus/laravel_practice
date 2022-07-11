@@ -21,7 +21,7 @@ class PropertiesTableSeeder extends Seeder
                 'properties_name' => '物件No' . $i,
                 'address' => '大阪府大阪市淀川区西中島' . $i . '丁目' . $i . '番地' . $i,
                 'building_age' => '築' . $i . '0年',
-                'rent' => $i . '万',
+                'rent' => $i,
             ]);
         }
     }
