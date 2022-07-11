@@ -10,7 +10,6 @@ class Properties extends Model
     use HasFactory;
 
     protected $table = 'properties';
-
     protected $primaryKey = 'id';
 
     public function findAllProperties()

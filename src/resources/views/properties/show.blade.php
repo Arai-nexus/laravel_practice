@@ -29,17 +29,9 @@
                 <td><input name="email" type="email" placeholder="abc@abc.com" required></td>
             </tr>
             <tr>
-                <td>電話番号</td>
-                <td><input name="tel" type="tel" placeholder="0000-000-000" required></td>
-            </tr>
-            <tr>
-                <td>物件名</td>
-                <td><input name="properties_name" class="search" placeholder="ハイツ西中島" required></td>
-            </tr>
-            <tr>
                 <td>お問い合わせ内容</td>
                 <td>
-                    <textarea name="content" col="30" rows="10" placeholder="物件の詳細を教えてください" required></textarea>
+                    <textarea name="body" col="30" rows="10" placeholder="物件の詳細を教えてください" required></textarea>
                 </td>
             </tr>
             <tr>
