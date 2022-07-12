@@ -15,7 +15,11 @@ use App\Http\Controllers\ContactsController;
 |
 */
 
-Route::get('/', ['App\Http\Controllers\PropertiesController', 'index']);
+Route::get('/', function () {
+    return view('welcome');
+});
+
+// Route::get('/', ['App\Http\Controllers\PropertiesController', 'index']);
 
 Route::get('/show/{id}', ['App\Http\Controllers\PropertiesController', 'show'])->name('show');
 
