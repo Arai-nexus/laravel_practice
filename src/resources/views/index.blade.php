@@ -15,14 +15,16 @@
                     {{ session('flash_message') }}
                 </div>
             @endif
+            <a href="{{ route('regist') }}"><button type="button">新規登録</button></a>
             @foreach ($properties as $propertie)
                 <tr>
-                    {{-- <td>{{ $propertie->id }}</td> --}}
                     <td>{{ $propertie->properties_name }}</td>
                     <td>{{ $propertie->address }}</td>
                     <td>{{ $propertie->building_age }}</td>
+                    {{-- <td><button type="button" href="{{ url('/show', $propertie->id) }}" class="btn btn-primary">詳細</a></td> --}}
+                    <td><a href="properties/edit/{{ $propertie->id }}"><button class="btn btn-primary">編集</button></a></td>
+                    <td><a href=" {{ route('delete') }}"><button type="button" class="btn btn-danger">削除</button></td>
                     <td>{{ $propertie->created_at }}</td>
-                    <td><a href="{{ url('/show', $propertie->id) }}" class="btn btn-primary">詳細</a></td>
                 </tr>
             @endforeach
         </tbody>

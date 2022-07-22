@@ -1,22 +1,33 @@
+body {
+    background: #f5f5f5;
+}
+
 .main-title {
-    display: flex;
     justify-content: center;
+    text-align: center;
 }
 
 .title {
-    font-size: 1em;
+    font-size: 1.5rem;
+    color: #ff4500;
+    font-weight: bold;
+    margin: 1em 0 0 auto;
 }
 
 .middle-title {
-    font-size: 2em;
+    font-size: 2rem;
+    color: #ff4500;
+    font-weight: bold;
+    margin: 0 0 2em 0;
 }
 
 .explain {
-    font-size: 1em;
+    font-size: 1rem;
+    color: #696969;
 }
 
 .Form {
-    margin-top: 80px;
+    margin-top: 2rem;
     margin-left: auto;
     margin-right: auto;
     max-width: 720px;
@@ -31,7 +42,6 @@
 .Form-Item {
     width: 100%;
     display: flex;
-    align-items: center;
 }
 
 @media screen and (max-width: 480px) {
@@ -49,12 +59,23 @@
     border-bottom: 1px solid #ddd;
 }
 
+.required {
+    width: 100%;
+    max-width: 248px;
+    letter-spacing: 0.05em;
+    font-weight: bold;
+    font-size: 1em;
+    color: #696969;
+    padding: 1rem 0 1rem 0;
+}
+
 .Form-Item-Label {
     width: 100%;
     max-width: 248px;
     letter-spacing: 0.05em;
     font-weight: bold;
     font-size: 18px;
+    color: #696969
 }
 
 @media screen and (max-width: 480px) {
@@ -87,7 +108,7 @@
     text-align: center;
     background: #5bc8ac;
     color: #fff;
-font-size: 14px;
+    font-size: 14px;
 }
 
 @media screen and (max-width: 480px) {
@@ -101,7 +122,7 @@ font-size: 14px;
 }
 
 .Form-Item-Input {
-    border: 1px solid #ddd;
+    border: 1px solid #808080;
     border-radius: 6px;
     margin-left: 40px;
     padding-left: 1em;
@@ -110,7 +131,7 @@ font-size: 14px;
     flex: 1;
     width: 100%;
     max-width: 410px;
-    background: #eaedf2;
+    background: #ffffff;
     font-size: 18px;
 }
 
@@ -125,7 +146,7 @@ font-size: 14px;
 }
 
 .Form-Item-Textarea {
-    border: 1px solid #ddd;
+    border: 1px solid #808080;
     border-radius: 6px;
     margin-left: 40px;
     padding-left: 1em;
@@ -134,9 +155,9 @@ font-size: 14px;
     flex: 1;
     width: 100%;
     max-width: 410px;
-    background: #eaedf2;
     font-size: 18px;
 }
+
 @media screen and (max-width: 480px) {
     .Form-Item-Textarea {
         margin-top: 18px;
@@ -152,15 +173,17 @@ font-size: 14px;
     margin-top: 32px;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
     width: 280px;
     display: block;
     letter-spacing: 0.05em;
-    background: #5bc8ac;
+    background: #ff4500;
     color: #fff;
     font-weight: bold;
     font-size: 20px;
+    border: none;
+    margin-bottom: 2em;
 }
 
 @media screen and (max-width: 480px) {
@@ -171,4 +194,34 @@ font-size: 14px;
         width: 160px;
         font-size: 16px;
     }
+}
+
+textarea {
+    resize: none;
+    width: 300px;
+    height: 200px;
+    padding: 10px;
+    font-family:'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+}
+
+::placeholder {
+    color: #d3d3d3;
+}
+
+.right {
+    float: right;
+}
+
+.phone-input {
+    border: 1px solid #808080;
+    border-radius: 6px;
+    margin-left: 40px;
+    padding-left: 1em;
+    padding-right: 1em;
+    height: 48px;
+    flex: 1;
+    width: 100%;
+    max-width: 410px;
+    background: #ffffff;
+    font-size: 18px;
 }

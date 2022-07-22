@@ -15,12 +15,19 @@ use App\Http\Controllers\ContactsController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-// Route::get('/', ['App\Http\Controllers\PropertiesController', 'index']);
+Route::get('/', ['App\Http\Controllers\PropertiesController', 'index']);
 
 Route::get('/show/{id}', ['App\Http\Controllers\PropertiesController', 'show'])->name('show');
 
-Route::post('/store', ['App\Http\Controllers\ContactsController', 'store'])->name('store');
+Route::prefix('properties')->group(function () {
+    Route::get('regist', ['App\Http\Controllers\PropertiesController', 'regist'])->name('regist');
+    Route::post('store', ['App\Http\Controllers\PropertiesController', 'store'])->name('store');
+    Route::get('edit/{id}', ['App\Http\Controllers\PropertiesController', 'edit'])->name('edit');
+    Route::post('editConfirm/{id}', ['App\Http\Controllers\PropertiesController', 'editConfirm'])->name('editConfirm');
+    Route::post('editComplete/{id}', ['App\Http\Controllers\PropertiesController', 'editComplete'])->name('editComplete');
+    Route::post('destroy/{id}', ['App\Http\Controllers\PropertiesController', 'delete'])->name('delete');
+});
