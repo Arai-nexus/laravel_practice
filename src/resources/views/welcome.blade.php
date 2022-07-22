@@ -12,46 +12,58 @@
 <body>
     <main class="page">
         <div class="main-title">
-            <p class="title text-center">CONTACT</p>
-            <p class="middle-title text-center">お問い合わせ</p>
-            <p class="explain text-center">物件に関するご質問など、お気軽に問い合わせください。</p>
+            <p class="title">CONTACT</p>
+            <p class="middle-title">問い合わせ</p>
+            <p class="explain">物件に関するご質問など、お気軽に問い合わせください。</p>
         </div>
-        <div class="Form">
-            <div class="Form-Item">
-                <div class="Form-Item-Label">名前</div>
+        <form name="contactForm" class="validationForm">
+            <div class="Form">
+                <p class="required">必須事項</p>
                 <div class="Form-Item">
-                    <input type="text" class="Form-Item-Input" id="name" placeholder="Suzuki Taro">
+                    <div class="Form-Item-Label">氏名</div>
+                    <div class="Form-Item">
+                        <input type="text" class="Form-Item-Input" id="name" placeholder="Suzuki Taro">
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="Form">
-            <div class="Form-Item">
-                <div class="Form-Item-Label">メールアドレス</div>
+            <div class="Form">
                 <div class="Form-Item">
-                    <input type="email" class="Form-Item-Input" id="email" placeholder="abcd@gmail.com">
+                    <div class="Form-Item-Label">メールアドレス</div>
+                    <div class="Form-Item">
+                        <input type="email" class="Form-Item-Input" id="email" placeholder="abcd@gmail.com">
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="Form">
-            <div class="Form-Item">
-                <div class="Form-Item-Label">電話番号</div>
+            <div class="Form">
                 <div class="Form-Item">
-                    <input type="text" class="Form-Item-Input" id="tel" placeholder="+81 123 456 789">
+                    <div class="Form-Item-Label">電話番号</div>
+                    <div class="Form-Item">
+                        <input type="text" class="phone-input" id="tel" placeholder="+81 123 456 789">
+                    </div>
+                    {{-- <span class="phone-input"></span> --}}
                 </div>
             </div>
-        </div>
-        <div class="Form">
-            <div class="Form-Item">
-                <div class="Form-Item-Label">お問い合わせ内容</div>
+            <div class="Form">
                 <div class="Form-Item">
-                    <textarea class="Form-Item-Input" id="details" rows="7" placeholder="物件に関するご質問など、お気軽にお問い合わせください。"></textarea>
+                    <div class="Form-Item-Label">物件名</div>
+                    <div class="Form-Item">
+                        <input type="text" class="Form-Item-Input" id="tel" placeholder="ご覧になっている物件名を入力してください">
+                    </div>
                 </div>
             </div>
-        </div>
-        <button type="submit" class="display-flex btn btn-submit">送信する</button>
-        </div>
-        </div>
-        <script></script>
-        </section>
+            <div class="Form">
+                <div class="Form-Item">
+                    <div class="Form-Item-Label">お問い合わせ内容</div>
+                    <div class="Form-Item">
+                        {{-- inputのエリアに入ったときのみ発火 --}}
+                        <textarea class="Form-Item-Textarea" id="area1" rows="30" placeholder="物件の詳細を教えてください。"></textarea>
+                    </div>
+                </div>
+                <div id="strLen" class="right"><span class="text-counter">0</span>文字</div>
+            </div>
+            <button type="submit" class="Form-Btn">送信する</button>
+        </form>
+    </main>
+    <script src="../js/index.js"></script>
 
-        <body>
+</body>

@@ -9,8 +9,7 @@ class Properties extends Model
 {
     use HasFactory;
 
-    protected $table = 'properties';
-    protected $primaryKey = 'id';
+    protected $fillable = ['properties_name', 'address', 'building_age', 'rent'];
 
     public function findAllProperties()
     {

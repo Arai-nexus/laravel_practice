@@ -1,12 +1,26 @@
-$("contact-content").submit(function() {
-     //エラーの初期化
-    $("p.error").remove();
-    $("table tr td").removeClass("error");
-    $(":text,textarea").filter(".validate").each(function(){
-    $(this).filter(".required").each(function(){
-        if($(this).val() =="") {
-            $(this).parent().prepend("
-            <p class="error">必須項目です</p>
-        ");
-        }
-    });
+const contactForm = document.querySelector('#area1');
+let textCounter = document.querySelector('.text-counter');
+
+contactForm.addEventListener('input', function(e) {
+    textCounter.textContent = e.target.value.length;
+});
+
+console.log('.text-content');
+console.log(textCounter.textContent);
+
+
+
+const phoneNumber = document.querySelector('#tel');
+const phoneValidation = document.querySelector('.phone-input');
+const validationPattern = /^[0-9]{10}$/;
+
+phoneNumber.addEventListener('input', function(e) {
+    if (validationPattern. test(phoneNumber.value) !== true) {
+        alert("電話番号フォームではありません。");
+        phoneValidation.style.backgroundColor = 'pink';
+    }
+});
+
+phoneNumber.addEventListener('input', function(e) {
+    onreset;
+}

@@ -18,7 +18,7 @@ class PropertiesController extends Controller
     {
         $properties = Properties::get();
 
-        return view('index', compact('properties'));
+        return view('index')->with(['properties' => $properties]);
     }
 
     public function show($id, Request $request)
@@ -32,5 +32,54 @@ class PropertiesController extends Controller
         return view('properties.show')->with([
             'properties' => $properties
         ]);
+    }
+
+    public function regist()
+    {
+        return view('properties.regist');
+    }
+
+
+    public function store(Request $request)
+    {
+        Properties::create([
+            $properties = 'properties_name' => $request->name,
+            $properties = 'address' => $request->address,
+            $properties = 'building_age' => $request->age,
+            $properties = 'rent' => $request->rent,
+        ]);
+        return redirect()->with($properties);
+    }
+
+    /**
+     * @param 
+     * @return
+     */
+    public function edit($id)
+    {
+        $selected_property = Properties::find($id);
+        return view('properties.edit')->with('selected_property', $selected_property);
+    }
+
+    public function editConfirm(Request $request, $id)
+    {
+        return view('properties.editConfirm')->with([
+            'test' => $request,
+            'id' => $id
+        ]);
+    }
+
+    public function editComplete(Request $request, $id)
+    {
+        $properties = Properties::find($id);
+
+        $properties->properties_name = $request->name;
+        $properties->address = $request->address;
+        $properties->building_age = $request->age;
+        $properties->rent = $request->rent;
+
+        $properties->save();
+
+        return redirect('/');
     }
 }

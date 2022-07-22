@@ -1,5 +1,5 @@
 @extends('layouts.template')
 
 @section('content')
-    <h3>お問い合わせ完了しました。</h3>
+    <h1>賃貸登録しました</h1>
 @endsection
