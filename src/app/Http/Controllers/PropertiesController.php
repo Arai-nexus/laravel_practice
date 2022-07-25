@@ -82,4 +82,27 @@ class PropertiesController extends Controller
 
         return redirect('/');
     }
+
+    public function delete($id)
+    {
+        $book = Properties::find($id);
+        $book->delete();
+        return redirect('/');
+    }
+
+    // public function search(Request $request)
+    // {
+    //     $keyword = $request->input('keyword');
+
+    //     $query = Properties::query();
+
+    //     if(!empty($keyword)) {
+    //         $query->where('name', 'LIKE', "%{$keyword}%")
+    //             ->orWhere('address', 'LIKE', "%{$keyword}%");
+    //     }
+
+    //     $posts = $query->get();
+
+    //     return view('index', compact('posts', 'keyword'));
+    // }
 }

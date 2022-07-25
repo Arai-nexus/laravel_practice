@@ -20,6 +20,7 @@ use App\Http\Controllers\ContactsController;
 // });
 
 Route::get('/', ['App\Http\Controllers\PropertiesController', 'index']);
+// Route::get('/', ['App\Http\Controllers\PropertiesController', 'search'])->name('search');
 
 Route::get('/show/{id}', ['App\Http\Controllers\PropertiesController', 'show'])->name('show');
 
@@ -29,5 +30,5 @@ Route::prefix('properties')->group(function () {
     Route::get('edit/{id}', ['App\Http\Controllers\PropertiesController', 'edit'])->name('edit');
     Route::post('editConfirm/{id}', ['App\Http\Controllers\PropertiesController', 'editConfirm'])->name('editConfirm');
     Route::post('editComplete/{id}', ['App\Http\Controllers\PropertiesController', 'editComplete'])->name('editComplete');
-    Route::post('destroy/{id}', ['App\Http\Controllers\PropertiesController', 'delete'])->name('delete');
+    Route::get('delete/{id}', ['App\Http\Controllers\PropertiesController', 'delete'])->name('delete');
 });
