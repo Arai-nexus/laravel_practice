@@ -20,7 +20,11 @@ use App\Http\Controllers\ContactsController;
 // });
 
 Route::get('/', ['App\Http\Controllers\PropertiesController', 'index']);
-// Route::get('/', ['App\Http\Controllers\PropertiesController', 'search'])->name('search');
+
+Route::get('/showAll', ['App\Http\Controllers\PropertiesController', 'showAll']); //ajaxで全表示
+Route::post('/show-detail', ['App\Http\Controllers\PropertiesController', 'showDetail']); //1件表示
+
+
 
 Route::get('/show/{id}', ['App\Http\Controllers\PropertiesController', 'show'])->name('show');
 
@@ -32,3 +36,5 @@ Route::prefix('properties')->group(function () {
     Route::post('editComplete/{id}', ['App\Http\Controllers\PropertiesController', 'editComplete'])->name('editComplete');
     Route::get('delete/{id}', ['App\Http\Controllers\PropertiesController', 'delete'])->name('delete');
 });
+
+// Route::get('/', ['App\Http\Controllers\PropertiesController', 'search'])->name('search');

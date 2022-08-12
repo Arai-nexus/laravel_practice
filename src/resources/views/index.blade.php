@@ -1,6 +1,33 @@
 @extends('layouts.template')
 
 @section('content')
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <div class="card-header">詳細検索</div>
+    <div class="card-body">
+        <form id="form" method="post">
+            <div class="col-md-4">IDを入力:</div>
+            <div class="col-md-4">
+                <input name="id" id="id_number" type="number">
+            </div>
+        </form>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-12">
+            <button id="ajax_show" class="btn btn-info text-white">詳細ボタン</button>
+        </div>
+    </div>
+    <!-- 取得したレコードを表示 -->
+    <div class="col-md-12" id="result"></div>
+
+
+    <div class="display-none result">
+        <div class="property-id">
+            id:<span></span>
+        </div>
+        <div class="property-name">
+            物件名:<span></span>
+        </div>
+    </div>
     <h1>賃貸一覧</h1>
 
     <table class="table table-striped">
@@ -16,12 +43,6 @@
                 </div>
             @endif
             <a href="{{ route('regist') }}"><button type="button">新規登録</button></a>
-            <!-- <div>
-                        {{-- <form action="{{ route('search') }}" method="GET"> --}}
-                            {{-- <input type="text" name="keyword" value="{{ $keyword }}"> --}}
-                            <input type="submit" value="検索">
-                        </form>
-                    </div> -->
             @foreach ($properties as $propertie)
                 <tr>
                     <td>{{ $propertie->properties_name }}</td>
@@ -35,4 +56,5 @@
             @endforeach
         </tbody>
     </table>
+    <script src="../js/ajax.js"></script>
 @endsection

@@ -5,19 +5,21 @@ namespace App\Http\Controllers;
 use App\Models\Properties;
 use GuzzleHttp\Handler\Proxy;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redis;
+use Illuminate\Support\Facades\Log;
 
 class PropertiesController extends Controller
 {
-    //
-    // public function __construct()
-    // {
-    //     $this->properties = new Properties();
-    // }
+
+    public function __construct()
+    {
+        $this->properties = new Properties();
+    }
 
     public function index()
     {
         $properties = Properties::get();
-
+        // dd($properties);
         return view('index')->with(['properties' => $properties]);
     }
 
@@ -88,6 +90,56 @@ class PropertiesController extends Controller
         $book = Properties::find($id);
         $book->delete();
         return redirect('/');
+    }
+
+    //ajaxで一覧表示
+    public function showAll()
+    {
+        $properties = Properties::get();
+
+        // dd($properties);
+
+        $propertiesList = [];
+        foreach ($properties as $property) {
+            $propertiesList[] = array(
+                'id' => $property->id,
+                'properties_name' => $property->properties_name,
+                'address' => $property->address,
+                'building_age' => $property->building_age,
+                'rent' => $property->rent
+            );
+        }
+        //  ヘッダーを指定することによりjsonの動作を安定させる
+        // header('Content-type: application/json');
+
+        // dd($propertiesList);
+
+        //　HTMLへ渡す配列$properiesListをjsonに変換する
+        return json_encode($propertiesList, JSON_UNESCAPED_UNICODE);
+    }
+
+    public function showDetail(Request $request)
+    {
+        log::info($request);
+
+        //取得できない可能性あり
+        $id = $request['id'];
+        log::info($id);
+
+        $property_info = Properties::where('id', $id)->get();
+
+        $property_detail = [];
+        foreach ($property_info as $property) {
+            $property_detail[] = array(
+                'id'    => $property->id,
+                'properties_name' => $property->properties_name,
+                'address' => $property->address,
+                'building_age' => $property->building_age,
+                'rent' => $property->rent
+            );
+        }
+        $data = json_encode($property_detail, JSON_UNESCAPED_UNICODE);
+        return response()->json($data);
     }
 
     // public function search(Request $request)
