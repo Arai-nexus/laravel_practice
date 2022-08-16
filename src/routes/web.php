@@ -21,7 +21,7 @@ Route::prefix('student')->group(function () {
     Route::get('create', ['App\Http\Controllers\StudentController', 'create'])->name('create');
     Route::post('store', ['App\Http\Controllers\StudentController', 'store'])->name('store');
     Route::get('edit/{id}', ['App\Http\Controllers\StudentController', 'edit'])->name('edit');
-    Route::post('update/{id}', ['App\Http\Controllers\StudentController', 'update'])->name('update');
+    Route::post('edit/{id}', ['App\Http\Controllers\StudentController', 'update'])->name('update');
     Route::get('delete/{id}', ['App\Http\Controllers\StudentController', 'delete'])->name('delete');
 });
 

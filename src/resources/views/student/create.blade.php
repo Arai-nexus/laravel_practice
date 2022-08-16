@@ -2,12 +2,8 @@
 
 @section('content')
     <h1>生徒登録</h1>
-    <div class="err-msg-name"></div>
-    @if (session('flash_message'))
-        <div class="flash_message">
-            {{ session('flash_message') }}
-        </div>
-    @endif
+    <div class="err-msg-name">
+    </div>
     <form action="{{ route('store') }}" id="form" method="post">
         @csrf
         <table>
@@ -23,6 +19,7 @@
                 <td>電話番号</td>
                 <td>
                     <input name="tel" type="tel" id="tel" placeholder="000-0000-0000" required>
+                    <span>※ハイフンは使用せずに記載ください。</span>
                 </td>
             </tr>
             <tr>

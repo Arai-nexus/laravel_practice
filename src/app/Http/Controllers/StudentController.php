@@ -13,10 +13,27 @@ use Illuminate\Support\Facades\Redis;
 class StudentController extends Controller
 {
     // DBからデータを取得
-    public function index()
+    public function index(Request $request)
     {
-        $stundents = Student::get();
-        return view('index')->with(['students' => $stundents]);
+        //キーワード受け取り
+        $keyword = $request->input('keyword');
+
+        $query = Student::query();
+
+        //もしキーワードがあったら
+        if (!empty($keyword)) {
+            $query->where('name', 'like', '%' . $keyword . '%');
+            $query->orWhere('email', 'like', '%' . $keyword . '%');
+            $query->orWhere('tel', 'like', '%' . $keyword . '%');
+            $query->orWhere('message', 'like', '%' . $keyword . '%');
+        }
+
+        // 検索条件の絞り込みをかけた全件取得
+        $students = $query->get();
+        return view('index')->with([
+            'students' => $students,
+            'keyword' => $keyword
+        ]);
     }
 
     // 新規登録画面へ遷移
@@ -50,7 +67,6 @@ class StudentController extends Controller
     // ブログ更新
     public function update(Request $request, $id)
     {
-
         $stundent = Student::find($id);
 
         $stundent->name = $request->name;
@@ -59,6 +75,7 @@ class StudentController extends Controller
         $stundent->message = $request->message;
 
         $stundent->save();
+        return redirect(route('index'));
     }
 
     // ブログ削除
