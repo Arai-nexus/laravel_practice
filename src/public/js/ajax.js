@@ -1,3 +1,14 @@
+//　エラーメッセージがある場合
+if (errMsg.length !== 0) {
+    // errMsg.lenghが1個以上あれば、メッセージを表示する
+    errMsg.forEach(function (value) {
+        const msg = document.createElement("p");
+        msg.textContent = value;
+        // msg.classList.add("append-content");
+        errMsgName.appendChild(msg);
+        e.preventDefault();
+    });
+
 // function getAllData() {
 //     fetch('showAll', {//第一引数に送り先
 //     })

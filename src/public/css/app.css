@@ -1,0 +1,16 @@
+.err-msg-name {
+    display: none;
+    background-color: rgb(255, 199, 199);
+    border: 1px solid rgb(241, 18, 18);
+    top: 5%;
+    left: 50%;
+    color: red;
+    /* width: 200px; */
+    padding: 10px 30px;
+    font-size: 15px;
+    text-align: center;
+    position: absolute;
+    margin: 10px 30px 20px 40px;
+    z-index: 1;
+    
+}

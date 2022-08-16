@@ -2,6 +2,13 @@
 
 @section('content')
     <h1>生徒一覧</h1>
+    <div>
+        <form action="{{ route('index') }}" method="GET">
+            <input type="text" name="keyword">
+            <input type="submit" value="検索">
+        </form>
+    </div>
+    </form>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -15,7 +22,7 @@
                 </div>
             @endif
             <a href="{{ route('create') }}"><button type="button">新規登録</button></a>
-            @foreach ($students as $student)
+            @forelse ($students as $student)
                 <tr>
                     {{-- <td>{{ $propertie->id }}</td> --}}
                     <td>{{ $student->name }}</td>
@@ -25,7 +32,9 @@
                     <td><a href="{{ route('edit', $student->id) }}"><button class="btn btn-danger">編集</button></a></td>
                     <td><a href="{{ route('delete', $student->id) }}"><button class="btn btn-danger">削除</button></a></td>
                 </tr>
-            @endforeach
+            @empty
+                <td>検索条件に合う生徒がいません。</td>
+            @endforelse
         </tbody>
     </table>
 @endsection

@@ -28,4 +28,5 @@
         </div>
     </div>
 </nav> --}}
+<a href="{{ route('index') }}">home</a>
 <!-- / Navigation -->

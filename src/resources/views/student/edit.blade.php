@@ -2,18 +2,15 @@
 
 @section('content')
     <h1>生徒情報編集</h1>
-    @if (session('flash_message'))
-        <div class="flash_message">
-            {{ session('flash_message') }}
-        </div>
-    @endif
-    <form action="{{ route('update', $student) }}" method="post">
+    <div class="err-msg-name">
+    </div>
+    <form action="{{ route('update', $student) }}" id="form" method="post">
         @csrf
-        {{-- <input type="hidden" name="id2q value="{{ $student->id }}"> --}}
+        {{-- <input type="hidden" name="id" value="{{ $student->id }}"> --}}
         <table>
             <tr>
                 <td>氏名</td>
-                <td><input name="name" value="{{ $student->name }}" required></td>
+                <td><input name="name" id="name" value="{{ $student->name }}" required></td>
             </tr>
             <tr>
                 <td>email</td>
@@ -34,7 +31,7 @@
                 </td>
             </tr>
             <tr>
-                <td><button type="submit" name="button" id="create-button">送信する</button></td>
+                <td><button type="submit" name="button" id="button">送信する</button></td>
             </tr>
             <br>
         </table>
