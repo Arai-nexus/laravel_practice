@@ -59,6 +59,10 @@ button.addEventListener("click", (e) => {
     if (errMsg.length !== 0) {
         // errMsg.lenghが1個以上あれば、メッセージを表示する
         errMsg.forEach(function (value) {
+        // errMsg.forEach(function(value) {
+        //     const msg = document.createElement("p");
+        //     msg.textContent = value;
+        // })
             const msg = document.createElement("p");
             msg.textContent = value;
             // msg.classList.add("append-content");
@@ -101,139 +105,10 @@ button.addEventListener("click", (e) => {
     errMsgName.style.display = "block";
     errMsgName.style.opacity = 1;
     setTimeout(fadeOutFlashMessage(errMsgName), 5000);
-    // window.addEventListener("load", (e) => {
-    //     // flash messageの要素を取得
-    // });
-
-    /**
-     * 上記へ修正したので、確認。
-     */
-    // flashメッセージが空じゃなかったら（入っていたら）、処理を実行
-    // if (flash_message !== null) {
-    //     // style属性opacityをセット
-    //     flash_message.style.opacity = 1;
-    //     // 今回は表示から3秒後に上記で定義したフェードアウトさせる関数を実行
-    //     setTimeout(fadeOutFlashMessage, 5000);
-    //     }
-    // });
 });
 
-//
 
-// document.addEventListener("DOMContentLoaded", (e) => {
-//     const button = document.querySelector("#button");
-//     button.addEventListener("click", (e) => {
-//         e.preventDefault();
-//         const name = document.querySelector("#name");
-
-//         // エラーメッセージを表示させる要素を取得
-//         if (!name.value) {
-//             // クラスを追加(エラーメッセージを表示する)
-//             // errMsgName.classList.add("form-invalid");
-//             // エラーメッセージのテキスト
-//             errMsgName.textContent = "お名前が入力されていません";
-//             // クラスを追加(フォームの枠線を赤くする)
-//             // name.classList.add("input-invalid");
-//             // 後続の処理を止める
-//             return;
-//         } else {
-//             // エラーメッセージのテキストに空文字を代入
-//             errMsgName.textContent = "";
-//             // クラスを削除
-//             // name.classList.remove("input-invalid");
-//         }
-//     });
-
-// /*各画面オブジェクト*/
-// const input_name = document.getElementById("name");
-// const email = document.getElementById("email");
-// const tel = document.getElementById("tel");
-// const message = document.getElementById("message");
-// const reg =
-//     /^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]{1,}.[A-Za-z0-9]{1,}$/;
-// if (input_name.value == null) {
-//     message.push("氏名が未入力です。");
-//     console.log;
-// }
-//   if(form) {
-//     const errorClassName = 'error';
-//     let message = [];
-//     /*入力値チェック*/
-//     if (input_name.value == null) {
-//         message.push("氏名が未入力です。");
-//     }
-//     if (email.value == null) {
-//         message.push("年齢が未入力です。");
-//     }
-//     if (tel.value == null) {
-//         message.push("メールアドレスが未入力です。");
-//     } else if (!reg.test(inputMail.value)) {
-//         message.push("メールアドレスの形式が不正です。");
-//     }
-//     if (message.value) {
-//         message.push("利用規約に同意してください。");
-//     }
-//     if (message.length > 0) {
-//         alert(message);
-//         return;
-//     }
-//     alert("入力チェックOK");
-// });
-// });
-
-// // ボックスを表示して、タイマーを開始
-// function showBox() {
-//     document.getElementById("temporaryBox").style.display = "block"; // ボックスを表示
-//     timerId = setTimeout(closeBox, 5000); // タイマーを開始
-//     document.getElementById("btnShowBox").disabled = true; // 表示用ボタンを無効化
-// }
-
-// // ボックスを消して、タイマーを終了
-// function closeBox() {
-//     document.getElementById("temporaryBox").style.display = "none"; // ボックスを消す
-//     clearTimeout(timerId); // タイマーを終了
-// }
-
-// // タイマーだけを中止
-// function keepBox() {
-//     clearTimeout(timerId); // タイマーを終了
-//     document.getElementById("btnKeepBox").disabled = true; // 維持用ボタンを無効化
-// }
-
-// const contactForm = document.querySelector("#area1");
-// let textCounter = document.querySelector(".text-counter");
-
-// contactForm.addEventListener("input", function (e) {
-//     textCounter.textContent = e.target.value.length;
-// });
-
-// console.log(".text-content");
-// console.log(textCounter.textContent);
-
-// const phoneNumber = document.querySelector("#tel");
-// const phoneValidation = document.querySelector(".phone-input");
-// const validationPattern = /^[0-9]{10}$/;
-
-// phoneNumber.addEventListener("input", function (e) {
-//     if (validationPattern.test(phoneNumber.value) !== true) {
-//         alert("電話番号フォームではありません。");
-//         phoneValidation.style.backgroundColor = "pink";
-//     }
-// });
-
-// phoneNumber.addEventListener("input", function (e) {
-//     onreset;
-// });
-
-// let flash_message = document.getElementById("flash_message");
-// window.addEventListener("load", function () {
-//       flash_message.classList.add('fadeout');
-//       setTimeout(function(){
-//         text.style.display = "none";
-//       }, 1000);
-//     }, false);
-// });
-
-// window.addEventListener("load", function() {
-//     setTimeout(('.alert-success').fadeOut() }, 5000);
-//  });
+let textCounter = document.querySelector(".text-counter");
+message.addEventListener("input", function (e) {
+    textCounter.textContent = e.target.value.length;
+});
