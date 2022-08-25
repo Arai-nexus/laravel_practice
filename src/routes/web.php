@@ -4,6 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PropertiesController;
 use App\Http\Controllers\ContactsController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\TaskController;
+use App\Http\Controllers\FolderController;
+use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,14 +20,36 @@ use App\Http\Controllers\StudentController;
 |
 */
 
-Route::get('/', ['App\Http\Controllers\StudentController', 'index'])->name('index');
-Route::prefix('student')->group(function () {
-    Route::get('create', ['App\Http\Controllers\StudentController', 'create'])->name('create');
-    Route::post('store', ['App\Http\Controllers\StudentController', 'store'])->name('store');
-    Route::get('edit/{id}', ['App\Http\Controllers\StudentController', 'edit'])->name('edit');
-    Route::post('edit/{id}', ['App\Http\Controllers\StudentController', 'update'])->name('update');
-    Route::get('delete/{id}', ['App\Http\Controllers\StudentController', 'delete'])->name('delete');
+Route::group(['middleware' => 'auth'], function() {
+    
+    // ホーム画面へアクセス
+    Route::get('/', [HomeController::class, 'index'])->name('home');
+    
+    // タスクのルーティング
+    Route::get('/folders/{folder}/tasks', [TaskController::class, 'index'])->name('tasks.index');
+    Route::get('/folders/{folder}/tasks/create', [TaskController::class, 'showCreateForm'])->name('tasks.create');
+    Route::post('/folders/{folder}/tasks/create', [TaskController::class, 'create']);
+    Route::get('/folders/{folder}/tasks/{task_id}/edit', [TaskController::class, 'showEditForm'])->name('tasks.edit');
+    Route::post('/folders/{folder}/tasks/{task_id}/edit', [TaskController::class, 'edit']);
+    
+    // フォルダーのルーティング
+    Route::get('/folders/create', [FolderController::class, 'showCreateForm'])->name('folders.create');
+    Route::post('/folders/create', [FolderController::class, 'create']);
 });
+
+Auth::routes();
+
+/**
+ * 生徒表示のルーティング
+ */
+// Route::get('/', ['App\Http\Controllers\StudentController', 'index'])->name('index');
+// Route::prefix('student')->group(function () {
+//     Route::get('create', ['App\Http\Controllers\StudentController', 'create'])->name('create');
+//     Route::post('store', ['App\Http\Controllers\StudentController', 'store'])->name('store');
+//     Route::get('edit/{id}', ['App\Http\Controllers\StudentController', 'edit'])->name('edit');
+//     Route::post('edit/{id}', ['App\Http\Controllers\StudentController', 'update'])->name('update');
+//     Route::get('delete/{id}', ['App\Http\Controllers\StudentController', 'delete'])->name('delete');
+// });
 
 // Route::get('/', function () {
 //     return view('welcome');

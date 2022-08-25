@@ -1,6 +1,7 @@
 @extends('layouts.template')
 
 @section('content')
+    <div class="confirm"></div>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <div class="card-header">詳細検索</div>
     <div class="card-body">
