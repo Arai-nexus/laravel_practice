@@ -15,7 +15,7 @@ class FolderController extends Controller
         return view('folders/create');
     }
 
-    public function create(CreateFolder $request)
+    public function create(Folder $folder, CreateFolder $request)
     {
         // フォルダモデルのインスタンスを作成
         $folder = new Folder();
@@ -29,8 +29,6 @@ class FolderController extends Controller
         // インスタンスの状態をデータベースに書き込む
         // $folder->save();
 
-        return redirect()->route('tasks.index', [
-            'id' => $folder->id,
-        ])->with('flash_message', '投稿が完了しました');
+        return redirect()->route('tasks.index', $folder)->with('flash_message', '投稿が完了しました');
     }
 }
