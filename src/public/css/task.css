@@ -44,3 +44,8 @@ a.my-navbar-item:hover {
 .form-control[readonly] {
   background-color: #fff;
 }
+
+.flash_message {
+  display: block;
+  text-align: center;
+}

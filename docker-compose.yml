@@ -17,8 +17,7 @@ services:
     working_dir: /data
 
   db:
-    image: postgres:latest
-    # build: ./infra/mysql
+    build: ./infra/mysql
     ports:
       - 3333:3306
     volumes:
