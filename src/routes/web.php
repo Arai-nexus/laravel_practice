@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PrefectureController;
 use App\Http\Controllers\PropertiesController;
 use App\Http\Controllers\ContactsController;
 use App\Http\Controllers\StudentController;
@@ -19,25 +20,26 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', [PrefectureController::class, 'index'])->name('index');
 
-Route::group(['middleware' => 'auth'], function() {
+// Route::group(['middleware' => 'auth'], function() {
     
     // ホーム画面へアクセス
-    Route::get('/', [HomeController::class, 'index'])->name('home');
+    // Route::get('/', [HomeController::class, 'index'])->name('home');
     
     // タスクのルーティング
-    Route::get('/folders/{folder}/tasks', [TaskController::class, 'index'])->name('tasks.index');
-    Route::get('/folders/{folder}/tasks/create', [TaskController::class, 'showCreateForm'])->name('tasks.create');
-    Route::post('/folders/{folder}/tasks/create', [TaskController::class, 'create']);
-    Route::get('/folders/{folder}/tasks/{task_id}/edit', [TaskController::class, 'showEditForm'])->name('tasks.edit');
-    Route::post('/folders/{folder}/tasks/{task_id}/edit', [TaskController::class, 'edit']);
+    // Route::get('/folders/{folder}/tasks', [TaskController::class, 'index'])->name('tasks.index');
+    // Route::get('/folders/{folder}/tasks/create', [TaskController::class, 'showCreateForm'])->name('tasks.create');
+    // Route::post('/folders/{folder}/tasks/create', [TaskController::class, 'create']);
+    // Route::get('/folders/{folder}/tasks/{task_id}/edit', [TaskController::class, 'showEditForm'])->name('tasks.edit');
+    // Route::post('/folders/{folder}/tasks/{task_id}/edit', [TaskController::class, 'edit']);
     
     // フォルダーのルーティング
-    Route::get('/folders/create', [FolderController::class, 'showCreateForm'])->name('folders.create');
-    Route::post('/folders/create', [FolderController::class, 'create']);
-});
+    // Route::get('/folders/create', [FolderController::class, 'showCreateForm'])->name('folders.create');
+    // Route::post('/folders/create', [FolderController::class, 'create']);
+// });
 
-Auth::routes();
+// Auth::routes();
 
 /**
  * 生徒表示のルーティング
